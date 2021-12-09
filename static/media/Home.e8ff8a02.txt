@@ -1,0 +1,16 @@
+import gif from "./assets/home.gif";
+
+export default function Home() {
+  return (
+    <div>
+      <img
+        src={gif}
+        alt=""
+        style={{ display: "block", width: "90%", margin: "auto" }}
+      />
+      <p style={{ textAlign: "center" }}>
+        Click the links in the top left to see more!
+      </p>
+    </div>
+  );
+}

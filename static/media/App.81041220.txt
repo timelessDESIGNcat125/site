@@ -1,0 +1,140 @@
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import { HashRouter as Router, Link, Route, Routes } from "react-router-dom";
+
+import bg from "./assets/bg.jpg";
+import bwlogo from "./assets/bwlogo.png";
+import colorLogo from "./assets/logo.png";
+import Game from "./Game";
+import Home from "./Home";
+import aboutMarkdown from "./markdown/about.md";
+import critiqueMarkdown from "./markdown/critique.md";
+import Source from "./Source";
+
+export default function App() {
+  const [showColorLogo, setColorLogo] = useState(true);
+  const [aboutText, setAboutText] = useState("");
+  const [critiqueText, setCritiqueText] = useState("");
+
+  useEffect(() => {
+    const interval = setInterval(() => setColorLogo((x) => !x), 600);
+    return () => clearInterval(interval);
+  }, []);
+
+  const useMdToText = (
+    md: string,
+    setText: React.Dispatch<React.SetStateAction<string>>
+  ) => {
+    useEffect(() => {
+      fetch(md)
+        .then((x) => x.text())
+        .then((x) => setText(x));
+    });
+  };
+
+  useMdToText(aboutMarkdown, setAboutText);
+  useMdToText(critiqueMarkdown, setCritiqueText);
+
+  return (
+    <Router>
+      <div style={{ backgroundImage: `url(${bg})`, minHeight: "100vh" }}>
+        <nav
+          style={{
+            display: "flex",
+            flexDirection: "row",
+          }}
+        >
+          <ul
+            style={{
+              flexShrink: 1,
+              backgroundColor: "white",
+              marginLeft: 20,
+              paddingRight: 20,
+              paddingTop: 10,
+              paddingBottom: 10,
+              borderWidth: 3,
+              borderColor: "black",
+              borderStyle: showColorLogo ? "double solid" : "solid double",
+            }}
+          >
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/game">Game</Link>
+            </li>
+            <li>
+              <Link to="/critique">Critique</Link>
+            </li>
+            <li>
+              <Link to="/inspiration">Inspiration</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/source">Source Code</Link>
+            </li>
+          </ul>
+        </nav>
+        <div style={{ margin: "auto", width: "80%" }}>
+          <div style={{ marginRight: "700px" }}>
+            <motion.img
+              src={showColorLogo ? colorLogo : bwlogo}
+              alt=""
+              style={{
+                display: "block",
+                margin: "auto",
+                borderWidth: 3,
+                borderColor: "black",
+                borderStyle: showColorLogo ? "double solid" : "solid double",
+              }}
+              animate={{ marginLeft: ["50%", "100%", "50%", "0%", "50%"] }}
+              transition={{ ease: "linear", duration: 10, repeat: Infinity }}
+            />
+          </div>
+        </div>
+        <div style={{ height: "40px" }} />
+        <div
+          style={{
+            width: "900px",
+            margin: "auto",
+            backgroundColor: "white",
+            padding: 10,
+            borderWidth: 10,
+            borderColor: "black",
+            borderStyle: "double",
+          }}
+        >
+          <Routes>
+            <Route path="/game" element={<Game />} />
+            <Route path="/source" element={<Source />} />
+            <Route
+              path="/critique"
+              element={<ReactMarkdown>{critiqueText}</ReactMarkdown>}
+            />
+            <Route path="/inspiration" element={<Home />} />
+            <Route
+              path="/about"
+              element={<ReactMarkdown>{aboutText}</ReactMarkdown>}
+            />
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </div>
+        <div style={{ height: "100px" }} />
+        <img
+          src={`//counter.websiteout.net/compte.php?S='${encodeURI(
+            window.location.hostname
+          )}'&C=7&D=0&N=0&M=0`}
+          alt=""
+          style={{
+            display: "block",
+            margin: "auto",
+            height: "50px",
+          }}
+        />
+      </div>
+    </Router>
+  );
+}
