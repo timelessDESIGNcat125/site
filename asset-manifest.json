@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/timelessDESIGN/build/static/css/main.63eaf727.chunk.css",
+    "main.js": "/timelessDESIGN/build/static/js/main.aa3ad937.chunk.js",
+    "main.js.map": "/timelessDESIGN/build/static/js/main.aa3ad937.chunk.js.map",
+    "runtime-main.js": "/timelessDESIGN/build/static/js/runtime-main.1749f257.js",
+    "runtime-main.js.map": "/timelessDESIGN/build/static/js/runtime-main.1749f257.js.map",
+    "static/js/2.bd233c7d.chunk.js": "/timelessDESIGN/build/static/js/2.bd233c7d.chunk.js",
+    "static/js/2.bd233c7d.chunk.js.map": "/timelessDESIGN/build/static/js/2.bd233c7d.chunk.js.map",
+    "static/js/3.c7c7c52e.chunk.js": "/timelessDESIGN/build/static/js/3.c7c7c52e.chunk.js",
+    "static/js/3.c7c7c52e.chunk.js.map": "/timelessDESIGN/build/static/js/3.c7c7c52e.chunk.js.map",
+    "index.html": "/timelessDESIGN/build/index.html",
+    "static/css/main.63eaf727.chunk.css.map": "/timelessDESIGN/build/static/css/main.63eaf727.chunk.css.map",
+    "static/js/2.bd233c7d.chunk.js.LICENSE.txt": "/timelessDESIGN/build/static/js/2.bd233c7d.chunk.js.LICENSE.txt",
+    "static/media/about.11545565.md": "/timelessDESIGN/build/static/media/about.11545565.md",
+    "static/media/bwlogo.cdf67bb4.png": "/timelessDESIGN/build/static/media/bwlogo.cdf67bb4.png",
+    "static/media/home.6830ccef.gif": "/timelessDESIGN/build/static/media/home.6830ccef.gif",
+    "static/media/logo.bc5a1630.png": "/timelessDESIGN/build/static/media/logo.bc5a1630.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1749f257.js",
+    "static/js/2.bd233c7d.chunk.js",
+    "static/css/main.63eaf727.chunk.css",
+    "static/js/main.aa3ad937.chunk.js"
+  ]
+}
